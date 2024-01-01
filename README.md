@@ -51,7 +51,7 @@ mode: single
 ## Step 4 - Add the three newly created Utility helpers to the Energy Dashboard:
 Do this for all 3 tariffs
 
-I suggest you use [EnergiDataService](https://github.com/MTrab/energidataservice) for the price information on the sensors
+I recommend using [EnergiDataService](https://github.com/MTrab/energidataservice) for the price information on the sensors
 
 ![image](https://github.com/pvprodk/HA-Energy-Tariff3.0/assets/79306514/7b2c34a2-8e73-407b-8b1f-bb74bfe7ca1c)
 
