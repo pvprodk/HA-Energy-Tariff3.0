@@ -21,7 +21,7 @@ Creating this Utility Helper will provide a “base” sensor (which controls wh
 
 Make sure to choose the correct sensor from your power-meter or similiar (in this example "Energy Imported" from a Slimmelezer connected to Landis+Gyr Electricity meter), the name will probably differ from this example
 
-Make sure to type in the three tariff names exactly like the code used in step 1.
+Make sure to type in the helper name and the three tariff names exactly.
 
 ![Skærmbillede 2024-01-01 214147](https://github.com/pvprodk/HA-Energy-Tariff3.0/assets/79306514/266917ed-0e5f-4036-bdaf-ade0e886164f)
 
