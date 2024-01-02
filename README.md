@@ -1,6 +1,11 @@
 # HA-Energy-Tariff3.0
 A guide to setup Home Assistant Energy Dashboard to show electricity purchase based on Tariff 3.0 
 
+![image](https://github.com/pvprodk/HA-Energy-Tariff3.0/assets/79306514/5b1c95da-ef5c-4ae8-b182-a83b4409e284) ![image](https://github.com/pvprodk/HA-Energy-Tariff3.0/assets/79306514/6b81a27f-15f3-448a-8cce-75a52a9ebb03)
+
+
+
+
 ## Step 1 - Create a Template sensor:
 The purpose of the template sensor is just to give a value "lavlast", "hojlast" or "spidslast" based on the time of day.
 
@@ -56,6 +61,42 @@ I recommend using [EnergiDataService](https://github.com/MTrab/energidataservice
 ![image](https://github.com/pvprodk/HA-Energy-Tariff3.0/assets/79306514/7b2c34a2-8e73-407b-8b1f-bb74bfe7ca1c)
 
 And then you get the information presented in your Energy Dashboard like this:
-![image](https://github.com/pvprodk/HA-Energy-Tariff3.0/assets/79306514/3be37acf-aa04-4323-80de-82d1a96f7901)
+![image](https://github.com/pvprodk/HA-Energy-Tariff3.0/assets/79306514/6b81a27f-15f3-448a-8cce-75a52a9ebb03)
+
+You can also make a pie chart showing the import distribution across tarrifs:
+![image](https://github.com/pvprodk/HA-Energy-Tariff3.0/assets/79306514/5b1c95da-ef5c-4ae8-b182-a83b4409e284)
+```
+type: custom:apexcharts-card
+chart_type: pie
+apex_config:
+  legend:
+    show: false
+  dataLabels:
+    enabled: true
+    dropShadow:
+      enabled: true
+    formatter: |
+      EVAL:function(value) {
+        return Number.parseFloat(Number(value)).toFixed(1) + "%";
+      }
+header:
+  show: true
+  show_states: true
+  colorize_states: true
+  title: Energy import tariff distribution
+all_series_config:
+  show:
+    legend_value: false
+    datalabels: percent
+    in_header: raw
+  float_precision: 2
+series:
+  - entity: sensor.tariff_3_0_import_lavlast
+    name: Lavlast
+  - entity: sensor.tariff_3_0_import_hojlast
+    name: Højlast
+  - entity: sensor.tariff_3_0_import_spidslast
+    name: Spidslast
+```
 
 
